@@ -1,3 +1,10 @@
+<script>
+import Second from "./Second.svelte";
+
+  export let courseGoal = '';
+
+</script>
+
 <h1>Assignment</h1>
 
 <p>Solve these tasks.</p>
@@ -12,3 +19,22 @@
     Put the h1 tag + output into a separate component to which you pass the user input
   </li>
 </ol>
+
+<div>
+  Add a course goal: 
+
+  <input bind:value={courseGoal}/>
+
+</div>
+
+<div>
+  Course goal is: <h1 class:reddish='{courseGoal.includes("!")}'>{courseGoal}</h1>
+</div>
+
+<Second {courseGoal}/>
+
+<style>
+.reddish {
+  color: red;
+}
+</style>
