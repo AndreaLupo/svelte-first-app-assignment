@@ -2,6 +2,8 @@
 import Second from "./Second.svelte";
 
   export let courseGoal = '';
+  //$:console.log(courseGoal);
+  $: shouldHighlight = courseGoal.includes("!");
 
 </script>
 
@@ -28,7 +30,7 @@ import Second from "./Second.svelte";
 </div>
 
 <div>
-  Course goal is: <h1 class:reddish='{courseGoal.includes("!")}'>{courseGoal}</h1>
+  Course goal is: <h1 class:reddish={shouldHighlight}>{courseGoal}</h1>
 </div>
 
 <Second {courseGoal}/>
